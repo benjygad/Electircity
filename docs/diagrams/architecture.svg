@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="640" viewBox="0 0 1000 640" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L9,3 L0,6 z" fill="#13294b"/></marker>
+  </defs>
+  <rect width="1000" height="640" fill="#f6f8fb"/>
+  <text x="500" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#0d1b2e">SEMS — System Architecture (academic prototype)</text>
+  <text x="500" y="54" text-anchor="middle" font-size="12" fill="#61708c">Flutter app + Admin dashboard share ONE PHP REST API and ONE database. No frontend touches the DB directly.</text>
+
+  <!-- clients -->
+  <rect x="40" y="90" width="270" height="120" rx="14" fill="#ffffff" stroke="#e3e8f0"/>
+  <rect x="40" y="90" width="270" height="34" rx="14" fill="#0ea5b7"/>
+  <text x="175" y="112" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Consumer Mobile App</text>
+  <text x="56" y="144" font-size="11.5" fill="#33415c">Flutter · Material 3 · fl_chart</text>
+  <text x="56" y="162" font-size="11.5" fill="#33415c">Secure token storage (Keystore/Keychain)</text>
+  <text x="56" y="180" font-size="11.5" fill="#33415c">Home · Consumption · Transactions ·</text>
+  <text x="56" y="196" font-size="11.5" fill="#33415c">Support · Profile · Notifications</text>
+
+  <rect x="690" y="90" width="270" height="120" rx="14" fill="#ffffff" stroke="#e3e8f0"/>
+  <rect x="690" y="90" width="270" height="34" rx="14" fill="#0d1b2e"/>
+  <text x="825" y="112" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Administrator Dashboard</text>
+  <text x="706" y="144" font-size="11.5" fill="#33415c">HTML5 · CSS3 · JavaScript · Chart.js</text>
+  <text x="706" y="162" font-size="11.5" fill="#33415c">Customers · Meters · Analytics · Alerts</text>
+  <text x="706" y="180" font-size="11.5" fill="#33415c">Faults · Reports · Audit · Settings</text>
+  <text x="706" y="196" font-size="11.5" fill="#33415c">Role: admin (server-enforced)</text>
+
+  <!-- API -->
+  <rect x="290" y="270" width="420" height="150" rx="14" fill="#13294b"/>
+  <text x="500" y="296" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">PHP REST API  /api/v1</text>
+  <text x="306" y="320" font-size="11.5" fill="#cdd8ea">Auth &amp; RBAC · bearer tokens (hashed) · rate limiting</text>
+  <text x="306" y="338" font-size="11.5" fill="#cdd8ea">Customers · Meters · Readings · Consumption · Transactions</text>
+  <text x="306" y="356" font-size="11.5" fill="#cdd8ea">Anomaly engine (rules) · Faults &amp; support · Notifications</text>
+  <text x="306" y="374" font-size="11.5" fill="#cdd8ea">Reports · Audit logs · Settings</text>
+  <text x="306" y="398" font-size="11" fill="#8fa5c6">PDO prepared statements · JSON envelope · ownership checks</text>
+
+  <!-- DB -->
+  <rect x="360" y="480" width="280" height="110" rx="14" fill="#ffffff" stroke="#e3e8f0"/>
+  <ellipse cx="500" cy="492" rx="140" ry="16" fill="#0ea5b7"/>
+  <text x="500" y="497" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">MySQL / MariaDB</text>
+  <text x="500" y="530" text-anchor="middle" font-size="11.5" fill="#33415c">16 tables · FK constraints · indexes</text>
+  <text x="500" y="548" text-anchor="middle" font-size="11.5" fill="#33415c">append-only history · source labels</text>
+  <text x="500" y="566" text-anchor="middle" font-size="11.5" fill="#33415c">audit trail · hashed tokens</text>
+
+  <!-- gateway layer -->
+  <rect x="40" y="290" width="200" height="130" rx="14" fill="#e0f5f8" stroke="#bfe6ec"/>
+  <text x="140" y="314" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0b6470">Meter Integration Layer</text>
+  <text x="140" y="336" text-anchor="middle" font-size="11" fill="#0b6470">MeterGatewayInterface</text>
+  <text x="140" y="356" text-anchor="middle" font-size="11" fill="#0b6470">✔ SimulatedGateway (active)</text>
+  <text x="140" y="374" text-anchor="middle" font-size="11" fill="#0b6470">☐ LukuGateway (placeholder)</text>
+  <text x="140" y="398" text-anchor="middle" font-size="10" fill="#61708c">future authorized integration</text>
+
+  <!-- simulator -->
+  <rect x="760" y="290" width="200" height="130" rx="14" fill="#fdf3e2" stroke="#f2dfb8"/>
+  <text x="860" y="314" text-anchor="middle" font-size="12.5" font-weight="700" fill="#92600a">Dev Simulator (CLI)</text>
+  <text x="860" y="336" text-anchor="middle" font-size="11" fill="#92600a">scripts/simulate.php</text>
+  <text x="860" y="354" text-anchor="middle" font-size="11" fill="#92600a">daily readings · spikes · outages</text>
+  <text x="860" y="372" text-anchor="middle" font-size="11" fill="#92600a">tamper events · zero usage</text>
+  <text x="860" y="398" text-anchor="middle" font-size="10" fill="#61708c">all rows source='simulated'</text>
+
+  <!-- arrows -->
+  <line x1="175" y1="210" x2="380" y2="268" stroke="#13294b" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="825" y1="210" x2="620" y2="268" stroke="#13294b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="245" y="236" font-size="10.5" fill="#61708c">HTTPS / JSON</text>
+  <text x="680" y="236" font-size="10.5" fill="#61708c">HTTPS / JSON</text>
+  <line x1="500" y1="420" x2="500" y2="464" stroke="#13294b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="512" y="448" font-size="10.5" fill="#61708c">PDO prepared statements</text>
+  <line x1="240" y1="355" x2="288" y2="355" stroke="#0ea5b7" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="760" y1="355" x2="712" y2="355" stroke="#d97706" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <text x="500" y="622" text-anchor="middle" font-size="11" fill="#61708c">No live TANESCO/LUKU connection exists — meter data is simulated and labelled. RBAC + ownership checks are enforced server-side.</text>
+</svg>

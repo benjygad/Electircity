@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="860" viewBox="0 0 1180 860" font-family="Segoe UI, Arial, sans-serif">
+  <style>
+    .t{fill:#fff;stroke:#c9d4e3;stroke-width:1.2;rx:8}
+    .h{fill:#0d1b2e;font-size:12.5px;font-weight:700}
+    .f{font-size:11px;fill:#33415c}
+    .k{font-weight:700;fill:#0d1b2e}
+    .fk{fill:#0ea5b7;font-size:10px;font-weight:700}
+    .rel{stroke:#13294b;stroke-width:1.4;fill:none}
+    .lab{font-size:10px;fill:#61708c}
+  </style>
+  <rect width="1180" height="860" fill="#f6f8fb"/>
+  <text x="590" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#0d1b2e">SEMS — Database ERD (MySQL/MariaDB)</text>
+
+  <!-- users -->
+  <g><rect class="t" x="40" y="70" width="220" height="150" rx="8"/>
+  <text class="h" x="52" y="92">users</text>
+  <text class="f k" x="52" y="112">id  PK</text>
+  <text class="f" x="52" y="128">full_name · email UQ · phone</text>
+  <text class="f" x="52" y="144">password_hash</text>
+  <text class="f" x="52" y="160">role: consumer|admin|technician|support</text>
+  <text class="f" x="52" y="176">status: active|suspended</text>
+  <text class="f" x="52" y="196">created_at · updated_at</text></g>
+
+  <!-- user_meters -->
+  <g><rect class="t" x="330" y="70" width="220" height="120" rx="8"/>
+  <text class="h" x="342" y="92">user_meters</text>
+  <text class="f k" x="342" y="112">id  PK</text>
+  <text class="f" x="342" y="128"><tspan class="fk">user_id FK</tspan> · <tspan class="fk">meter_id FK</tspan></text>
+  <text class="f" x="342" y="144">relationship: owner|tenant</text>
+  <text class="f" x="342" y="160">UQ(user_id, meter_id) · created_at</text></g>
+
+  <!-- meters -->
+  <g><rect class="t" x="620" y="70" width="240" height="150" rx="8"/>
+  <text class="h" x="632" y="92">meters</text>
+  <text class="f k" x="632" y="112">id  PK</text>
+  <text class="f" x="632" y="128">meter_number UQ · meter_type</text>
+  <text class="f" x="632" y="144">service_location</text>
+  <text class="f" x="632" y="160">integration_status:</text>
+  <text class="f" x="632" y="174">connected|simulated|offline|integration_unavailable</text>
+  <text class="f" x="632" y="194">created_at · updated_at</text></g>
+
+  <!-- meter_readings -->
+  <g><rect class="t" x="930" y="60" width="220" height="150" rx="8"/>
+  <text class="h" x="942" y="82">meter_readings (append-only)</text>
+  <text class="f k" x="942" y="102">id  PK</text>
+  <text class="f" x="942" y="118"><tspan class="fk">meter_id FK</tspan> · reading_time</text>
+  <text class="f" x="942" y="134">cumulative_kwh · voltage · current</text>
+  <text class="f" x="942" y="150">source: simulated|manual|</text>
+  <text class="f" x="942" y="164">imported|hardware</text>
+  <text class="f" x="942" y="182">UQ(meter_id, reading_time)</text></g>
+
+  <!-- consumption_records -->
+  <g><rect class="t" x="930" y="260" width="220" height="130" rx="8"/>
+  <text class="h" x="942" y="282">consumption_records</text>
+  <text class="f k" x="942" y="302">id  PK</text>
+  <text class="f" x="942" y="318"><tspan class="fk">meter_id FK</tspan> · period_start/end</text>
+  <text class="f" x="942" y="334">energy_kwh (end − start)</text>
+  <text class="f" x="942" y="350">source · UQ(meter_id, period_start)</text></g>
+
+  <!-- token_transactions -->
+  <g><rect class="t" x="620" y="280" width="240" height="140" rx="8"/>
+  <text class="h" x="632" y="302">token_transactions</text>
+  <text class="f k" x="632" y="322">id  PK</text>
+  <text class="f" x="632" y="338"><tspan class="fk">meter_id FK</tspan> · amount ≥ 0</text>
+  <text class="f" x="632" y="354">token_reference (MASKED last4)</text>
+  <text class="f" x="632" y="370">type · status: recorded|pending|failed</text>
+  <text class="f" x="632" y="386">source · created_at</text></g>
+
+  <!-- alerts -->
+  <g><rect class="t" x="620" y="470" width="240" height="150" rx="8"/>
+  <text class="h" x="632" y="492">alerts</text>
+  <text class="f k" x="632" y="512">id  PK</text>
+  <text class="f" x="632" y="528"><tspan class="fk">meter_id FK</tspan> · alert_type · severity</text>
+  <text class="f" x="632" y="544">description · data_source</text>
+  <text class="f" x="632" y="560">status: new|under_investigation|</text>
+  <text class="f" x="632" y="574">confirmed|dismissed|resolved</text>
+  <text class="f" x="632" y="592"><tspan class="fk">assigned_to FK users</tspan> · admin_notes · resolved_at</text></g>
+
+  <!-- fault_reports -->
+  <g><rect class="t" x="40" y="300" width="230" height="150" rx="8"/>
+  <text class="h" x="52" y="322">fault_reports</text>
+  <text class="f k" x="52" y="342">id  PK</text>
+  <text class="f" x="52" y="358"><tspan class="fk">user_id FK</tspan> · <tspan class="fk">meter_id FK</tspan> (nullable)</text>
+  <text class="f" x="52" y="374">category · description</text>
+  <text class="f" x="52" y="390">status: submitted…closed</text>
+  <text class="f" x="52" y="406"><tspan class="fk">assigned_to FK users</tspan></text>
+  <text class="f" x="52" y="424">created_at · updated_at</text></g>
+
+  <!-- support_messages -->
+  <g><rect class="t" x="40" y="510" width="230" height="110" rx="8"/>
+  <text class="h" x="52" y="532">support_messages</text>
+  <text class="f k" x="52" y="552">id  PK</text>
+  <text class="f" x="52" y="568"><tspan class="fk">report_id FK</tspan> · <tspan class="fk">sender_id FK users</tspan></text>
+  <text class="f" x="52" y="584">message · created_at (append-only)</text></g>
+
+  <!-- notifications -->
+  <g><rect class="t" x="330" y="300" width="220" height="110" rx="8"/>
+  <text class="h" x="342" y="322">notifications</text>
+  <text class="f k" x="342" y="342">id  PK</text>
+  <text class="f" x="342" y="358"><tspan class="fk">user_id FK</tspan> · title · message</text>
+  <text class="f" x="342" y="374">read_at (nullable) · created_at</text></g>
+
+  <!-- audit_logs -->
+  <g><rect class="t" x="330" y="470" width="220" height="120" rx="8"/>
+  <text class="h" x="342" y="492">audit_logs (append-only)</text>
+  <text class="f k" x="342" y="512">id  PK</text>
+  <text class="f" x="342" y="528"><tspan class="fk">actor_id FK users</tspan> (nullable)</text>
+  <text class="f" x="342" y="544">action · entity_type · entity_id</text>
+  <text class="f" x="342" y="560">details · created_at</text></g>
+
+  <!-- auth tables -->
+  <g><rect class="t" x="40" y="680" width="250" height="105" rx="8"/>
+  <text class="h" x="52" y="702">auth_tokens</text>
+  <text class="f k" x="52" y="722">id PK · <tspan class="fk">user_id FK</tspan> · token_hash UQ (SHA-256)</text>
+  <text class="f" x="52" y="740">expires_at · created_at</text></g>
+
+  <g><rect class="t" x="330" y="680" width="250" height="105" rx="8"/>
+  <text class="h" x="342" y="702">password_resets</text>
+  <text class="f k" x="342" y="722">id PK · <tspan class="fk">user_id FK</tspan> · code_hash</text>
+  <text class="f" x="342" y="740">expires_at · used_at</text></g>
+
+  <g><rect class="t" x="620" y="680" width="240" height="105" rx="8"/>
+  <text class="h" x="632" y="702">settings · rate_limits</text>
+  <text class="f" x="632" y="724">settings: key PK · value  (tariff, thresholds)</text>
+  <text class="f" x="632" y="742">rate_limits: bucket PK · hits · window_start</text></g>
+
+  <!-- relations -->
+  <path class="rel" d="M260,140 H330"/><text class="lab" x="272" y="132">1—N</text>
+  <path class="rel" d="M550,140 H620"/><text class="lab" x="562" y="132">N—1</text>
+  <path class="rel" d="M860,130 H930"/><text class="lab" x="872" y="122">1—N readings</text>
+  <path class="rel" d="M1040,210 V260"/><text class="lab" x="1050" y="240">derives 1—N</text>
+  <path class="rel" d="M800,220 V280"/><text class="lab" x="808" y="252">1—N transactions</text>
+  <path class="rel" d="M800,420 V470"/><text class="lab" x="808" y="448">1—N alerts</text>
+  <path class="rel" d="M150,220 V300"/><text class="lab" x="158" y="262">1—N reports</text>
+  <path class="rel" d="M150,450 V510"/><text class="lab" x="158" y="482">1—N messages</text>
+  <path class="rel" d="M260,360 H330"/><text class="lab" x="266" y="352">user→</text>
+  <path class="rel" d="M150,620 V680"/><text class="lab" x="158" y="652">user→tokens</text>
+
+  <text x="590" y="830" text-anchor="middle" font-size="11" fill="#61708c">FKs enforce all relationships · history tables are append-only · token values stored masked only · all timestamps UTC</text>
+</svg>

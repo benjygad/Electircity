@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="760" viewBox="0 0 1060 760" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="1060" height="760" fill="#f6f8fb"/>
+  <text x="530" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#0d1b2e">SEMS — Use Case Diagram</text>
+
+  <!-- actors -->
+  <g fill="none" stroke="#0d1b2e" stroke-width="2">
+    <circle cx="90" cy="300" r="14" fill="#0ea5b7" stroke="none"/>
+    <line x1="90" y1="314" x2="90" y2="352"/><line x1="66" y1="328" x2="114" y2="328"/>
+    <line x1="90" y1="352" x2="70" y2="382"/><line x1="90" y1="352" x2="110" y2="382"/>
+  </g>
+  <text x="90" y="404" text-anchor="middle" font-size="13" font-weight="700" fill="#0d1b2e">Consumer</text>
+  <text x="90" y="420" text-anchor="middle" font-size="10.5" fill="#61708c">(mobile app)</text>
+
+  <g fill="none" stroke="#0d1b2e" stroke-width="2">
+    <circle cx="980" cy="300" r="14" fill="#0d1b2e" stroke="none"/>
+    <line x1="980" y1="314" x2="980" y2="352"/><line x1="956" y1="328" x2="1004" y2="328"/>
+    <line x1="980" y1="352" x2="960" y2="382"/><line x1="980" y1="352" x2="1000" y2="382"/>
+  </g>
+  <text x="980" y="404" text-anchor="middle" font-size="13" font-weight="700" fill="#0d1b2e">Administrator</text>
+  <text x="980" y="420" text-anchor="middle" font-size="10.5" fill="#61708c">(web dashboard)</text>
+
+  <g fill="none" stroke="#9aa7bd" stroke-width="2" stroke-dasharray="4 3">
+    <circle cx="90" cy="620" r="14" fill="#cbd5e3" stroke="none"/>
+    <line x1="90" y1="634" x2="90" y2="666"/><line x1="70" y1="646" x2="110" y2="646"/>
+    <line x1="90" y1="666" x2="74" y2="692"/><line x1="90" y1="666" x2="106" y2="692"/>
+  </g>
+  <text x="90" y="712" text-anchor="middle" font-size="12" fill="#61708c">Technician / Support</text>
+  <text x="90" y="727" text-anchor="middle" font-size="10" fill="#9aa7bd">(future roles)</text>
+
+  <!-- system boundary -->
+  <rect x="200" y="60" width="660" height="660" rx="16" fill="#ffffff" stroke="#c9d4e3"/>
+  <text x="530" y="88" text-anchor="middle" font-size="14" font-weight="700" fill="#0d1b2e">Smart Electricity Management System</text>
+
+  <!-- consumer use cases (left column) -->
+  <g font-size="11.5" text-anchor="middle">
+    <ellipse cx="330" cy="130" rx="98" ry="22" fill="#e0f5f8" stroke="#0ea5b7"/><text x="330" y="134" fill="#0b6470">Register &amp; log in</text>
+    <ellipse cx="330" cy="185" rx="98" ry="22" fill="#e0f5f8" stroke="#0ea5b7"/><text x="330" y="189" fill="#0b6470">Manage profile</text>
+    <ellipse cx="330" cy="240" rx="98" ry="22" fill="#e0f5f8" stroke="#0ea5b7"/><text x="330" y="244" fill="#0b6470">View meters &amp; status</text>
+    <ellipse cx="330" cy="295" rx="98" ry="22" fill="#e0f5f8" stroke="#0ea5b7"/><text x="330" y="292" fill="#0b6470">Record simulated</text><text x="330" y="305" fill="#0b6470">token purchases</text>
+    <ellipse cx="330" cy="350" rx="98" ry="22" fill="#e0f5f8" stroke="#0ea5b7"/><text x="330" y="354" fill="#0b6470">Monitor consumption</text>
+    <ellipse cx="330" cy="405" rx="98" ry="22" fill="#e0f5f8" stroke="#0ea5b7"/><text x="330" y="402" fill="#0b6470">Track expenditure</text><text x="330" y="415" fill="#0b6470">&amp; credit estimate</text>
+    <ellipse cx="330" cy="460" rx="98" ry="22" fill="#e0f5f8" stroke="#0ea5b7"/><text x="330" y="464" fill="#0b6470">Report faults</text>
+    <ellipse cx="330" cy="515" rx="98" ry="22" fill="#e0f5f8" stroke="#0ea5b7"/><text x="330" y="519" fill="#0b6470">Message support</text>
+    <ellipse cx="330" cy="570" rx="98" ry="22" fill="#e0f5f8" stroke="#0ea5b7"/><text x="330" y="574" fill="#0b6470">Receive notifications</text>
+  </g>
+
+  <!-- admin use cases (right column) -->
+  <g font-size="11.5" text-anchor="middle">
+    <ellipse cx="700" cy="130" rx="105" ry="22" fill="#e7edfd" stroke="#2563eb"/><text x="700" y="134" fill="#13294b">View system statistics</text>
+    <ellipse cx="700" cy="185" rx="105" ry="22" fill="#e7edfd" stroke="#2563eb"/><text x="700" y="189" fill="#13294b">Manage customers</text>
+    <ellipse cx="700" cy="240" rx="105" ry="22" fill="#e7edfd" stroke="#2563eb"/><text x="700" y="237" fill="#13294b">Manage meters &amp;</text><text x="700" y="250" fill="#13294b">customer assignment</text>
+    <ellipse cx="700" cy="295" rx="105" ry="22" fill="#e7edfd" stroke="#2563eb"/><text x="700" y="299" fill="#13294b">Ingest/inspect readings</text>
+    <ellipse cx="700" cy="350" rx="105" ry="22" fill="#e7edfd" stroke="#2563eb"/><text x="700" y="354" fill="#13294b">Review anomaly alerts</text>
+    <ellipse cx="700" cy="405" rx="105" ry="22" fill="#e7edfd" stroke="#2563eb"/><text x="700" y="409" fill="#13294b">Manage fault reports</text>
+    <ellipse cx="700" cy="460" rx="105" ry="22" fill="#e7edfd" stroke="#2563eb"/><text x="700" y="464" fill="#13294b">Reply to consumers</text>
+    <ellipse cx="700" cy="515" rx="105" ry="22" fill="#e7edfd" stroke="#2563eb"/><text x="700" y="519" fill="#13294b">Generate reports</text>
+    <ellipse cx="700" cy="570" rx="105" ry="22" fill="#e7edfd" stroke="#2563eb"/><text x="700" y="574" fill="#13294b">Review audit logs</text>
+    <ellipse cx="700" cy="625" rx="105" ry="22" fill="#e7edfd" stroke="#2563eb"/><text x="700" y="629" fill="#13294b">Configure settings</text>
+  </g>
+
+  <!-- includes -->
+  <g stroke="#9aa7bd" stroke-dasharray="5 4" fill="none">
+    <line x1="428" y1="295" x2="595" y2="240"/>
+    <line x1="428" y1="460" x2="595" y2="405"/>
+    <line x1="428" y1="515" x2="595" y2="460"/>
+  </g>
+  <g font-size="9.5" fill="#61708c">
+    <text x="470" y="256">«include» meter ownership check</text>
+    <text x="475" y="428">«include» status notification</text>
+    <text x="475" y="488">«include» notification</text>
+  </g>
+
+  <!-- future -->
+  <g stroke="#cbd5e3" stroke-dasharray="4 3" fill="none">
+    <line x1="104" y1="640" x2="596" y2="420"/>
+    <line x1="104" y1="650" x2="596" y2="465"/>
+  </g>
+  <text x="300" y="560" font-size="9.5" fill="#9aa7bd">future: restricted access to assigned reports</text>
+
+  <text x="530" y="745" text-anchor="middle" font-size="11" fill="#61708c">Token operations are simulated records; no use case claims control of physical LUKU meters.</text>
+</svg>
